@@ -1,8 +1,17 @@
-<?php include('configs/dbConfig.php');?>
+<?php include('controllers/get.php');?>
 <?php include('helpers/header.php');?>
 
-    <a class="btn btn-success" href="/project/controllers/post.php" role="button"> Add User</a>
-    <br>
+<div class="row">                
+    <div class="col-mb-6">
+        <a class="btn btn-success" href="/project/controllers/post.php" role="button">Add User</a>
+    </div>
+    <div class="col" style="text-align:right;">
+        <label class="col mb-6">Search Name</label>
+    </div>
+    <div class="col-sm-2">
+        <input type="text" class="form-control" name="search_name" value="">
+    </div>
+</div>
     <table class="table">
         <thead>
             <tr>
@@ -16,11 +25,6 @@
         </thead>
         <tbody>
             <?php
-            $query = 'SELECT * FROM user';
-            $result = $connection->query($query);
-            if(!$result){
-                die("invalid query");
-            }
             while($row = $result->fetch_assoc()){
                 echo "
                 <tr>
